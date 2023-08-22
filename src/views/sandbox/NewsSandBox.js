@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import SideMenu from '../../components/sandbox/SideMenu'
 import TopHeader from '../../components/sandbox/TopHeader'
-import NProgress from 'nprogress';
+import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
-import { Layout } from 'antd';
-import NewsRouter from '../../components/sandbox/NewsRouter';
+import { Layout } from 'antd'
+import NewsRouter from '../../components/sandbox/NewsRouter'
 const { Content } = Layout
 
 export default function NewsSandBox() {
-    const location = useLocation();
+    const location = useLocation()
     NProgress.start()
     useEffect(() => {
         return () => {

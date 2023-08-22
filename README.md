@@ -41,10 +41,6 @@ React News System is a web application for managing and publishing news articles
 2. Start the development server: `npm start` or `yarn start`
 3. Open your browser and go to: `http://localhost:3000`
 
-### Building for Production
-
-To build the application for production, run:
-
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request or open an issue.

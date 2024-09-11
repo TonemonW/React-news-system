@@ -1,6 +1,7 @@
 # React News System
 
-React News System is a web application for managing and publishing news articles. It provides features such as news publishing, article management, user management, role-based permissions, and more. The application is built using React, React Router, Redux, Ant Design, ECharts, and Axios. The backend is based on JSON Server.
+React News System is a web application designed for managing and publishing news articles. It offers features such as news publishing, article management, user management, and role-based permissions. The application is developed using React, React Router, Redux, Ant Design, ECharts, and Axios, with a backend based on JSON Server.
+
 ![Screenshot 1](Login.png)
 ![Screenshot 2](Home.png)
 ![Screenshot 3](Charts.png)

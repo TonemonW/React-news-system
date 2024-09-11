@@ -60,8 +60,8 @@ const SideMenu = (props) => {
                         mode="inline"
                         theme="dark"
                         items={items}
-                        SelectedKeys={[selectedKey]}
-                        defaultOpenKeys={["/" + selectedKey.split("/")[1]]}
+                        selectedKeys={[selectedKey]}
+                        defaultOpenKeys={selectedKey ? ["/" + selectedKey.split("/")[1]] : []}
                     />
                 </div>
             </div>

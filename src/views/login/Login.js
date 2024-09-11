@@ -20,27 +20,37 @@ export default function Login() {
     const savedUsername = localStorage.getItem('username')
     const savedPassword = localStorage.getItem('password')
     const onFinish = (values) => {
-        axios.get(`/users?username=${values.username}&password=${values.password}&rollState=true&_expand=role`).then(res => {
-            if (res.data.length === 0) {
+        axios.get(`/users?username=${values.username}&password=${values.password}&rollState=true&_expand=role`)
+            .then(res => {
+                if (res.data.length === 0) {
+                    message.open({
+                        type: 'error',
+                        content: "username or password is wrong",
+                        style: {
+                            marginTop: '20vh',
+                        }
+                    })
+                } else {
+                    localStorage.setItem("token", JSON.stringify(res.data[0]))
+                    if (rememberMe) {
+                        localStorage.setItem("password", values.password)
+                        localStorage.setItem("username", values.username)
+                    } else {
+                        localStorage.removeItem("password")
+                        localStorage.removeItem("username")
+                    }
+                    navigate("/home")
+                }
+            })
+            .catch(err => {
                 message.open({
                     type: 'error',
-                    content: "username or password is wrong",
+                    content: 'Network error or server issue',
                     style: {
                         marginTop: '20vh',
                     }
                 })
-            } else {
-                localStorage.setItem("token", JSON.stringify(res.data[0]))
-                if (rememberMe) {
-                    localStorage.setItem("password", values.password)
-                    localStorage.setItem("username", values.username)
-                } else {
-                    localStorage.removeItem("password")
-                    localStorage.removeItem("username")
-                }
-                navigate("/home")
-            }
-        })
+            });
     }
     return (
         <div className='container'>

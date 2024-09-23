@@ -801,6 +801,16 @@
       "default": false,
       "roleState": true,
       "id": 89
+    },
+    {
+      "username": "visitor",
+      "password": "v1234567",
+      "confirm": "v1234567",
+      "roleId": 3,
+      "region": "Oceania",
+      "default": false,
+      "roleState": true,
+      "id": 90
     }
   ]
 }

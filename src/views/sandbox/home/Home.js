@@ -14,12 +14,12 @@ export default function Home() {
     const barRef = useRef()
     const pieRef = useRef()
     useEffect(() => {
-        axios.get("http://localhost:5000/news?publishState=2&_expand=category&_sort=view&_order=desc&_limit=6").then(res => {
+        axios.get("https://json-server-brown-nine.vercel.app/news?publishState=2&_expand=category&_sort=view&_order=desc&_limit=6").then(res => {
             setViewList(res.data)
         })
     }, [])
     useEffect(() => {
-        axios.get("http://localhost:5000/news?publishState=2&_expand=category&_sort=star&_order=desc&_limit=6").then(res => {
+        axios.get("https://json-server-brown-nine.vercel.app/news?publishState=2&_expand=category&_sort=star&_order=desc&_limit=6").then(res => {
             setLikeList(res.data)
         })
     }, [])

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '../redux/store'
-axios.defaults.baseURL = "http://localhost:5000"
+axios.defaults.baseURL = "https://json-server-brown-nine.vercel.app"
 axios.interceptors.request.use(function (config) {
     store.dispatch(
         {

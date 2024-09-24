@@ -75,7 +75,7 @@ export default function Login() {
                             },
                         ]}
                     >
-                        <Input prefix={<UserOutlined />} placeholder="Username" style={{
+                        <Input prefix={<UserOutlined />} placeholder="Username:admin" style={{
                             width: 300,
                         }} />
                     </Form.Item>
@@ -91,7 +91,7 @@ export default function Login() {
                         <Input
                             prefix={<LockOutlined />}
                             type="password"
-                            placeholder="Password"
+                            placeholder="Password:123"
                             style={{
                                 width: 300,
                             }}

@@ -1,4 +1,4 @@
-import React, { useState, } from 'react'
+import React, { useState } from 'react'
 import ParticleBackground from './ParticleBackground'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -29,17 +29,20 @@ export default function Login() {
                         style: {
                             marginTop: '20vh',
                         }
-                    })
+                    });
                 } else {
-                    localStorage.setItem("token", JSON.stringify(res.data[0]))
+                    localStorage.setItem("token", JSON.stringify(res.data[0]));
+
                     if (rememberMe) {
-                        localStorage.setItem("password", values.password)
-                        localStorage.setItem("username", values.username)
+                        localStorage.setItem("password", values.password);
+                        localStorage.setItem("username", values.username);
                     } else {
-                        localStorage.removeItem("password")
-                        localStorage.removeItem("username")
+                        localStorage.removeItem("password");
+                        localStorage.removeItem("username");
                     }
-                    navigate("/home")
+
+                    // 这里直接调用 navigate 跳转
+                    navigate("/home");
                 }
             })
             .catch(err => {
@@ -49,9 +52,11 @@ export default function Login() {
                     style: {
                         marginTop: '20vh',
                     }
-                })
+                });
             });
-    }
+    };
+
+
     return (
         <div className='container'>
             <ParticleBackground />

@@ -19,42 +19,44 @@ export default function Login() {
     const [rememberMe, setRememberMe] = useState(true)
     const savedUsername = localStorage.getItem('username')
     const savedPassword = localStorage.getItem('password')
-    const onFinish = (values) => {
-        axios.get(`/users?username=${values.username}&password=${values.password}&rollState=true&_expand=role`)
-            .then(res => {
-                if (res.data.length === 0) {
-                    message.open({
-                        type: 'error',
-                        content: "username or password is wrong",
-                        style: {
-                            marginTop: '20vh',
-                        }
-                    });
-                } else {
-                    localStorage.setItem("token", JSON.stringify(res.data[0]));
-
-                    if (rememberMe) {
-                        localStorage.setItem("password", values.password);
-                        localStorage.setItem("username", values.username);
-                    } else {
-                        localStorage.removeItem("password");
-                        localStorage.removeItem("username");
-                    }
-
-                    // 这里直接调用 navigate 跳转
-                    navigate("/home");
-                }
-            })
-            .catch(err => {
+    const onFinish = async (values) => {
+        try {
+            const res = await axios.get(`/users?username=${values.username}&password=${values.password}&rollState=true&_expand=role`);
+            if (res.data.length === 0) {
                 message.open({
                     type: 'error',
-                    content: 'Network error or server issue',
+                    content: "username or password is wrong",
                     style: {
                         marginTop: '20vh',
                     }
                 });
+            } else {
+                localStorage.setItem("token", JSON.stringify(res.data[0]));
+
+                if (rememberMe) {
+                    localStorage.setItem("password", values.password);
+                    localStorage.setItem("username", values.username);
+                } else {
+                    localStorage.removeItem("password");
+                    localStorage.removeItem("username");
+                }
+
+                // 使用 window.location.reload() 强制刷新页面
+                navigate("/home");
+                window.location.reload();
+            }
+        } catch (err) {
+            message.open({
+                type: 'error',
+                content: 'Network error or server issue',
+                style: {
+                    marginTop: '20vh',
+                }
             });
+        }
     };
+
+
 
 
     return (

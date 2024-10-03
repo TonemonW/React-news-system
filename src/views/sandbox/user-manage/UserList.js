@@ -197,7 +197,7 @@ export default function UserList() {
     };
     return (
         <div>
-            <Button type='primary' onClick={() => { setIsModalOpen(true) }}>添加用户</Button>
+            <Button type='primary' onClick={() => { setIsModalOpen(true) }}>Add New User</Button>
             <Table rowKey={(item) => item.id} dataSource={dataSource} columns={columns} pagination={{ pageSize: 6 }} scroll={{
                 y: 550,
             }} />

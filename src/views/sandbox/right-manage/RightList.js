@@ -28,12 +28,12 @@ export default function RightList() {
             width: 250,
         },
         {
-            title: '权限名称',
+            title: 'Right',
             dataIndex: 'title',
             width: 250,
         },
         {
-            title: '权限路径',
+            title: 'Path',
             dataIndex: 'key',
             render: (key) => {
                 return <Tag color="gold">{key}</Tag>
@@ -41,7 +41,7 @@ export default function RightList() {
             width: 250,
         },
         {
-            title: '操作',
+            title: 'Permission',
             render: (item) => {
                 return <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Switch checkedChildren="open" unCheckedChildren="close" checked={item.pagepermisson} style={{ marginRight: '220px' }}

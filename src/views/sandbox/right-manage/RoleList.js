@@ -31,12 +31,12 @@ export default function RoleList() {
             width: 250,
         },
         {
-            title: '角色名称',
+            title: 'Role',
             dataIndex: 'roleName',
             width: 350,
         },
         {
-            title: '操作',
+            title: 'Permission',
             render: (item) => {
                 return <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Button type="primary" shape="circle" icon={<AlignRightOutlined />} style={{ marginRight: '220px' }} onClick={() => {
